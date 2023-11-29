@@ -1,0 +1,58 @@
+﻿@page
+@model addmoduleModel
+@{
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module Tracker</title>
+    <link rel="stylesheet" href="~/css/site2.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ji.site.js" asp-append-version="true" />
+    </head>
+
+<body>
+    <section class="container">
+        <header class="header">
+            <h2> Module Track</h2>
+        </header>
+
+        <section class="section">
+            <div class="section-title">Add Modules for the Semester</div>
+
+            <form id="module-form" method="post">
+                <div class="module-wrapper">
+                    <div class="module-details">
+                        <label for="Code" >Module Code:</label>
+                        <input name="Code" type="text" id="Code" required>
+
+                        <label for="Code" >Module Name:</label>
+                        <input name="Name" type="text" id="Name" required>
+
+                        <label for="Credits">Number of Credits:</label>
+                        <input name ="Credits" type="number" id="Credits" required>
+
+                        <label for="ClassHour" >Class Hours per Week:</label>
+                        <input name="ClassHour"  type="number" id="ClassHour" required>
+                        <h2>Semester Information</h2>
+                        <label for="SelfStudy">Number of Weeks in Semester:</label>
+                        <input name="SelfStudy" type="number" id="SelfStudy" required>
+
+                        <label for="Startdate" > Date of Semester:</label>
+                        <input name="Startdate" type="date" id="Startdate" required>
+                    </div>
+
+                </div>
+                           <div class="button-group">
+                    <button type="submit" >Save Module</button>
+                    <button type="reset">Reset</button>
+                   
+                </div>
+            </form>
+     
+        </section>
+     </section>  
+    </body> 
+    </html>   

@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34009.444
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "finalPOEProg", "finalPOEProg\finalPOEProg.csproj", "{854CD96D-10FD-4DD4-BF32-D443E446E9C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary", "finalPOEProg\ClassLibrary\ClassLibrary.csproj", "{218D89B2-3D93-4555-A3A7-68CBE88FD998}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{29224D44-ABB9-45D3-89ED-73539DB8E964}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{854CD96D-10FD-4DD4-BF32-D443E446E9C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{854CD96D-10FD-4DD4-BF32-D443E446E9C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{854CD96D-10FD-4DD4-BF32-D443E446E9C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{854CD96D-10FD-4DD4-BF32-D443E446E9C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{218D89B2-3D93-4555-A3A7-68CBE88FD998}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{218D89B2-3D93-4555-A3A7-68CBE88FD998}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{218D89B2-3D93-4555-A3A7-68CBE88FD998}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{218D89B2-3D93-4555-A3A7-68CBE88FD998}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D6221C42-C927-48F5-A8EC-B832543597E8}
+	EndGlobalSection
+EndGlobal

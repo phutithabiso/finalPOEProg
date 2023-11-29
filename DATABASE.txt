@@ -1,0 +1,24 @@
+create database ModuleApps;
+ use[ModuleApps];
+-- Creating table user
+CREATE TABLE usertrack (
+    username VARCHAR(255) NOT NULL primary key,
+    password VARCHAR(255) NOT NULL
+);
+
+-- Creating table studymodu
+CREATE TABLE studymodu(
+    id INT NOT NULL IDENTITY(1,1),
+    Code VARCHAR(255) NOT NULL,
+    Name VARCHAR(255) NOT NULL,
+    Credits VARCHAR(150) NOT NULL,
+    ClassHour VARCHAR(100) NOT NULL,
+    SelfStudyHours VARCHAR(150) NOT NULL,
+    Startdate VARCHAR(100) NOT NULL,
+    username VARCHAR(255) NOT NULL,
+    PRIMARY KEY (Code, username),
+    FOREIGN KEY (username) REFERENCES usertrack(username)
+);
+
+SELECT * FROM usertrack;
+SELECT * FROM studymodu; 

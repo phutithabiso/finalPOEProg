@@ -1,0 +1,107 @@
+﻿@page
+@model dashboardModel
+@{
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="~/css/site2.css" asp-append-version="true" />
+   <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .header {
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .dashboard {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .frame-container {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+        }
+
+        .frame {
+            padding: 20px;
+            background-color: #f2f2f2;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        button {
+            margin-top: 10px;
+            padding: 8px 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+            button:hover {
+                background-color: #45a049;
+            }
+          
+    </style>
+   
+</head>
+<body>
+    <a href="/login" >back  </a>
+    <section class="container">
+        <header class="header">
+            <h2> Module DashBoard</h2>
+        </header>
+        <h3>Welcome to Your Module Journey</h3>
+        <div class="dashboard">
+            <div class="frame-container">
+            
+                <div class="frame">
+                    <img src="images/bous_1_wk01_fig03.tif.jpg" />
+                    <span>Add Module</span>
+                    <button onclick="add('@Model.username')">Add Module</button>
+                </div>
+                <div class="frame">
+                    <img src="images/bous_1_wk01_fig03.tif.jpg" />
+                    <span>View Modules</span>
+                    <button onclick="view('@Model.username')">View Modules</button>
+                </div>
+            </div>
+          
+           </div>
+          
+        </section>
+        </body>
+        </html>
+
+
+    
+<script>
+    function add(username) {
+        window.location.href = "/addmodule?username="+username;
+    }
+
+    function view(username) {
+        window.location.href = "/viewmodule?username=" + username;
+    }
+
+  
+</script>
+
+     

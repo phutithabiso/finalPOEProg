@@ -1,0 +1,151 @@
+﻿@page
+@model viewmoduleModel
+@{
+}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module Tracker</title>
+    <link rel="stylesheet" href="~/css/site2.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ji.site.js" asp-append-version="true" />
+
+</head>
+<body>
+<section id="sec" class="section">
+
+    
+    <button onclick="login()"> log out:@Model.username</button>
+    <div class="section-title">Module List  </div>
+
+    <div class="table-container">
+            <table id="moduletable">
+            <thead>
+                <tr>
+                    <th>Module Code</th>
+                    <th>Module Name</th>
+                    <th>Number of Credits</th>
+                    <th>Class Hours per Week</th>
+                    <th> Study Hours per Week</th>
+                    <th>  Start Date"</th>
+                    <th> update</th>
+                </tr>
+            </thead>
+            <tbody>
+                  
+                    @for (int i = 0; i <@Model.Code.Count; i++)
+                    {
+                    
+                        <tr>
+                        <td>@Model.Code[i]</td>
+                        <td>@Model.Name[i]</td>
+                        <td>@Model.Credits[i]</td>
+                        <td>@Model.ClassHour[i]</td>
+                        <td>@Model.SelfStudyHours[i]</td>
+                        <td>@Model.Startdate[i]</td> 
+                            <td><button onclick="show('@Model.id[i]')">update</button></td>
+                        
+                    </tr>
+                }
+            </tbody>
+             
+        </table>
+        <form method="post">
+        <div id="hide" class="show" style="display:none">
+            <h2>Remaining study Module per Week</h2>
+                    <div>
+                        <label for="id">Module ID:</label>
+                        <input type="text" readonly name="id" id="caught" value="">
+                    </div>
+                    <div>
+                        <label for="hours">Hours:</label>
+                        <input name="hours" type="number" id="hours" placeholder="number of hours" required>
+                    </div>                   
+               <br />
+                   
+            <div>
+                    <button  type ="submit"class="button">submit</button>
+                   
+            </div>
+                   
+        </div>             
+            </form>
+            <div class="button-group">
+                <button class="button" onclick="displayChart()">Display Chart</button>
+               <br/>
+                <canvas id="selfStudyChart" width="300" height="200"></canvas>
+            </div>
+    </div>
+  
+    </section>
+
+    @section Scripts {
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            function login() {
+                window.location = src = "/login";
+            }
+            function l() {
+                window.location = src = "/addmodule";
+            }
+
+            function show(value) {
+                document.getElementById("caught").value = value;
+                document.getElementById("hide").style.display = "block";
+            }
+
+            function displayChart() {
+            
+                var selfStudyChartData = @Html.Raw(Json.Serialize(Model.SelfStudyHours)); //  list of hours
+
+                var ctx = document.getElementById('selfStudyChart').getContext('2d');
+                var selfStudyChart = new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: @Html.Raw(Json.Serialize(Model.Name)), //  list of module names
+                        datasets: [{
+                            label: 'Self-Study Hours per Week',
+                            data: selfStudyChartData,
+                            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            x: {
+                                grid: {
+                                    display: false
+                                }
+                            },
+                            y: {
+                                beginAtZero: true,
+                                max: 100
+                            }
+                        },
+                        plugins: {
+                            legend: {
+                                display: true,
+                                position: 'top'
+                            }
+                        },
+                        layout: {
+                            padding: {
+                                left: 10,
+                                right: 10,
+                                top: 0,
+                                bottom: 10
+                            }
+                        },
+                        barPercentage: 1, //  make the bars smaller or larger
+                        categoryPercentage: 0.2 //  control the spacing between bars
+                    }
+                });
+            }
+        </script>
+    }
+
+}
+</body>
+</html>
+
